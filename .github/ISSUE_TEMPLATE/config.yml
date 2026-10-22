@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and community conversations
+    url: https://github.com/Ramses13th/B-CAD/discussions
+    about: Ask questions, share a use case, or find collaborators in Discussions.
+  - name: Start here — contribution guide
+    url: https://github.com/Ramses13th/B-CAD/blob/main/CONTRIBUTING.md
+    about: Find a focused task, understand review, and learn the AI contribution policy.
+  - name: Installation status
+    url: https://github.com/Ramses13th/B-CAD/blob/main/docs/installation.md
+    about: No installable add-on exists yet. See current status and the planned release workflow.
+  - name: Security policy
+    url: https://github.com/Ramses13th/B-CAD/blob/main/SECURITY.md
+    about: Find a private reporting route. Do not publish exploit details or secrets in an issue.

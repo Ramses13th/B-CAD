@@ -1,0 +1,19 @@
+B-CAD
+Copyright (C) 2026 B-CAD contributors
+
+Original code, documentation, and SVG artwork in this repository are provided
+under GPL-3.0-or-later unless an individual file states otherwise.
+The complete GNU General Public License version 3 is in LICENSE. You may use
+version 3 or any later version as described by the license.
+
+The project is an independent blueprint and contributor hub. Blender,
+Autodesk Fusion, Open CASCADE Technology, and other referenced names belong
+to their respective owners. References do not imply affiliation or endorsement.
+
+No Blender, OCCT, SolveSpace, FreeCAD, CadQuery, or other third-party CAD source
+code or binaries are bundled at this stage. Future redistribution must preserve
+upstream notices and satisfy the actual versions' licenses and source obligations.
+
+The documentation build uses Python-Markdown (BSD-3-Clause), installed from
+PyPI via requirements.txt. The repository does not vendor that dependency.
+Research references are listed in docs/research.md.

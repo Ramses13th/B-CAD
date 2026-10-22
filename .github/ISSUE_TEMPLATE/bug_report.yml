@@ -1,0 +1,60 @@
+name: Bug or documentation problem
+description: Report an actual problem with the hub or an implemented feature.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve B-CAD. This is currently a blueprint and contributor hub; no installable add-on is available. Report future behavior through a feature request or Design RFC. Do not post secrets, private CAD models, or security exploits here; follow [SECURITY.md](https://github.com/Ramses13th/B-CAD/blob/main/SECURITY.md).
+  - type: checkboxes
+    id: preparation
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues for this problem.
+          required: true
+        - label: This report describes something that currently exists, rather than an unimplemented roadmap item.
+          required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Documentation or broken link
+        - Contributor website or search
+        - Documentation tools or CI
+        - Implemented runtime feature (only if present)
+        - Other current repository behavior
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the actual result and what you expected. Link the affected page or file.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Give the smallest repeatable example. Use shareable, licensed inputs.
+      placeholder: |
+        1. Open ...
+        2. Run or click ...
+        3. Observe ...
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Version and environment
+      description: Commit or page URL, OS, browser or Python version. For future runtime reports also include B-CAD release, Blender version, CPU architecture, and core version.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and checks
+      description: Redacted logs, screenshots, exact commands, or a proposed correction. Explain anything you could not verify. Do not include personal information or proprietary designs.

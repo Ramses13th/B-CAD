@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="760" viewBox="0 0 800 760" fill="none">
+ <title>Parametric bracket architecture concept</title>
+ <desc>A technical illustration of a precision bracket, with exact-solid geometry, a mesh-display outline, construction references, and a proposed feature sequence. This is a concept, not a software screenshot.</desc>
+ <defs>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" stroke="#65745d" stroke-opacity=".12" stroke-width=".6"/></pattern>
+  <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx=".5" cy=".5" r="1" fill="#819575" fill-opacity=".22"/></pattern>
+  <linearGradient id="base" x1="300" y1="400" x2="550" y2="570" gradientUnits="userSpaceOnUse"><stop stop-color="#ffcb7c"/><stop offset="1" stop-color="#ef9c37"/></linearGradient>
+  <linearGradient id="wall" x1="265" y1="320" x2="450" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#ec9d3c"/><stop offset="1" stop-color="#ffc56c"/></linearGradient>
+  <linearGradient id="edge" x1="200" y1="300" x2="460" y2="640" gradientUnits="userSpaceOnUse"><stop stop-color="#d5872c"/><stop offset="1" stop-color="#8b551f"/></linearGradient>
+  <linearGradient id="bore" x1="333" y1="270" x2="367" y2="377" gradientUnits="userSpaceOnUse"><stop stop-color="#3d301d"/><stop offset=".65" stop-color="#714c25"/><stop offset="1" stop-color="#e0a252"/></linearGradient>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop stop-color="#586b3d" stop-opacity=".13"/><stop offset="1" stop-color="#586b3d" stop-opacity="0"/></radialGradient>
+ </defs>
+ <path fill="url(#grid)" d="M0 0h800v760H0z"/>
+ <path fill="url(#dots)" d="M0 0h800v760H0z"/>
+ <ellipse cx="420" cy="401" rx="340" ry="310" fill="url(#glow)"/>
+ <g stroke="#57684a" stroke-width=".8" opacity=".4"><path d="M40 520 430 745 772 547M80 543 421 346 760 542M40 600l581-335M200 690l539-311M40 440l520 300M120 396l540 312M200 348l540 312"/><path d="m87 491 397-229M165 536l397-229M243 581l397-229M322 626l397-229"/></g>
+ <g stroke="#6d805d" stroke-width=".8" stroke-dasharray="4 6" opacity=".7"><path d="M200 247V151l160-93 265 153v346M360 155V58M425 192l160-92M200 497l-90 52m90-302-90 52M620 555l69 40m-229 52 69 40"/><path d="m200 497 260 150 160-92M360 155l-160 92 65 37 160-92"/></g>
+ <g stroke="#c5cfb6" stroke-width="1" opacity=".7">
+  <path d="M108 307v231M100 303l16 9m-16 221 16 9M536 682l147-85m-152 78 10 15m137-100 10 15M217 664l208 120"/>
+ </g>
+ <g font-family="Consolas,monospace" font-size="12" fill="#9bab8e" letter-spacing="1"><text transform="translate(94 449) rotate(-90)">h = 60.00</text><text transform="translate(603 660) rotate(-30)">w = 40.00</text></g>
+ <path d="m200 497 260 150 160-92-260-150-160 92Z" fill="#050904" opacity=".33" transform="translate(0 20)"/>
+ <!-- Front and top faces of an illustrative extruded angle bracket. -->
+ <path d="m360 155 65 37.5-160 92-65-37.5 160-92Z" fill="#ffd394" stroke="#f7cd8a" stroke-width="1.2" stroke-linejoin="round"/>
+ <path d="M425 192.5v185l-160 92v-185l160-92Z" fill="url(#wall)" stroke="#f4ba64" stroke-width="1.2" stroke-linejoin="round"/>
+ <path d="m425 377.5 195 112.5-160 92-195-112.5 160-92Z" fill="url(#base)" stroke="#ffd28a" stroke-width="1.2" stroke-linejoin="round"/>
+ <path d="m200 247 65 37.5v185L460 582v65L200 497V247Z" fill="url(#edge)" stroke="#cd8f3e" stroke-width="1.2" stroke-linejoin="round"/>
+ <path d="M620 490v65l-160 92v-65l160-92Z" fill="#bd7c2e" stroke="#df9c45" stroke-width="1.2" stroke-linejoin="round"/>
+ <!-- Recessed bores are explanatory design details, not generated CAD output. -->
+ <ellipse cx="345" cy="331" rx="38" ry="57" transform="rotate(30 345 331)" fill="url(#bore)" stroke="#f7cb80" stroke-width="1.6"/>
+ <ellipse cx="349" cy="325" rx="29" ry="47" transform="rotate(30 349 325)" fill="#20251a" stroke="#5a4b2c" stroke-width="1"/>
+ <path d="M369 284c22 22 16 67-12 91" stroke="#c3934d" stroke-width="1.3"/>
+ <ellipse cx="447" cy="483" rx="46" ry="25" transform="rotate(-.5 447 483)" fill="#815426" stroke="#ffce82" stroke-width="1.6"/>
+ <ellipse cx="447" cy="477" rx="37" ry="18" fill="#20251a" stroke="#5e4828"/>
+ <path d="M410 481c19-11 52-11 73 0" stroke="#c18b43" stroke-width="1"/>
+ <!-- Exact-model edges. -->
+ <g stroke="#fff0c1" stroke-opacity=".55" stroke-width="1.2"><path d="M265 284.5v185L460 582M200 247l65 37.5M425 377.5 620 490"/></g>
+ <!-- Reference centerlines and attachment points. -->
+ <g stroke="#d9e2c5" stroke-width=".8" stroke-dasharray="8 5 1 5" opacity=".75"><path d="m286 365 117-68M345 253v156M376 483h142M447 451v67"/></g>
+ <g fill="#f1e6c6"><circle cx="345" cy="331" r="2"/><circle cx="447" cy="483" r="2"/></g>
+ <!-- A construction outline suggests the separate display representation. -->
+ <g stroke="#8ca576" stroke-width=".7" opacity=".52"><path d="m360 155-21-44-160 92 21 44M339 111l65 37 21 44M179 203l65 38 21 43M179 203v250l21 44M179 453l260 150 21 44M244 241v185l21 43M244 426l195 112 21 44M439 538l160-92 21 44M599 446l-195-112 21 43M404 148v186"/><path d="m179 203 65 223m0-185 160 93M179 453l65-27m195 112 160-92M200 497l44-71m195 112 21 109"/></g>
+ <!-- Sparse technical annotations. -->
+ <g font-family="Consolas,monospace" font-size="10" letter-spacing="1.2">
+  <path d="M459 214h77l35-37h130" stroke="#9bb28a" stroke-width=".8"/><circle cx="459" cy="214" r="2.5" fill="#b6c9a2"/><text x="572" y="166" fill="#c9d5bd">EXACT B-REP</text><text x="572" y="194" font-size="8" fill="#829875" letter-spacing=".6">Geometric authority</text>
+  <path d="M244 426H106l-28-28H29" stroke="#748c65" stroke-width=".8"/><circle cx="244" cy="426" r="2" fill="#99b184"/><text x="30" y="385" fill="#8fa67f" font-size="9">DISPLAY MESH</text>
+  <path d="m395 308 44-26h88" stroke="#c6b78e" stroke-width=".8"/><text x="448" y="268" fill="#c5bf9e" font-size="9">ø 20.00</text>
+  <text x="30" y="63" fill="#7b916c" font-size="9">PARAMETRIC STUDY / MM</text><path d="M30 77h143" stroke="#485b3c" stroke-width=".8"/>
+ </g>
+ <!-- Orientation triad. -->
+ <g stroke-width="1.4"><path d="M709 672v-47" stroke="#a7b792"/><path d="m709 672 36 21" stroke="#ffb94f"/><path d="m709 672-36 21" stroke="#788f68"/></g><g font-family="Consolas,monospace" font-size="9"><text x="705" y="615" fill="#a7b792">Z</text><text x="751" y="701" fill="#ffb94f">X</text><text x="661" y="703" fill="#788f68">Y</text></g>
+ <!-- Proposed feature history. -->
+ <g font-family="Consolas,monospace" font-size="8" letter-spacing=".4"><path d="M55 725h476" stroke="#42543a"/><g fill="#121514" stroke="#839c70"><rect x="55" y="720" width="10" height="10"/><rect x="180" y="720" width="10" height="10"/><rect x="305" y="720" width="10" height="10"/><rect x="430" y="720" width="10" height="10"/></g><g fill="#95a987"><text x="75" y="728">Sketch</text><text x="200" y="728">Extrude</text><text x="325" y="728">Fillet</text><text x="450" y="728">Hole</text></g><text x="55" y="704" fill="#647b56" font-size="7" letter-spacing="1">PROPOSED FEATURE HISTORY</text></g>
+</svg>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#121514">
+  <title>B-CAD — An open blueprint for parametric CAD in Blender</title>
+  <meta name="description" content="Help build B-CAD: an open blueprint for exact, parametric CAD inside Blender. Explore the proposed OCCT architecture, roadmap, and human and AI contributor guide.">
+  <link rel="canonical" href="https://ramses13th.github.io/B-CAD/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="B-CAD">
+  <meta property="og:title" content="B-CAD — Precision, with room to build.">
+  <meta property="og:description" content="An open blueprint for parametric CAD inside Blender. Explore the architecture. Shape the roadmap. Help build it.">
+  <meta property="og:url" content="https://ramses13th.github.io/B-CAD/">
+  <meta property="og:image" content="https://ramses13th.github.io/B-CAD/assets/social-card.png">
+  <meta property="og:image:alt" content="B-CAD: an open blueprint for parametric CAD in Blender. Architecture concept illustration.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="B-CAD — Parametric CAD in Blender">
+  <meta name="twitter:description" content="Exact geometry. Open development. A contributor hub for the CAD system we want to build.">
+  <meta name="twitter:image" content="https://ramses13th.github.io/B-CAD/assets/social-card.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"B-CAD","description":"An open blueprint and contributor hub for a parametric CAD system inside Blender.","codeRepository":"https://github.com/Ramses13th/B-CAD","url":"https://ramses13th.github.io/B-CAD/","keywords":"Blender, parametric CAD, OCCT, B-Rep, open source, CAD architecture","creativeWorkStatus":"Concept / blueprint"}</script>
+</head>
+<body data-base="./">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="./" aria-label="B-CAD home"><svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path d="M4 8 16 1l12 7v15l-12 8L4 23V8Zm4 2v11l8 5 8-5V10l-8-5-8 5Z" fill="currentColor"/><path d="m8 10 8 5 8-5M16 15v11" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>B-CAD<span class="brand-dot">.</span></span></a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-controls="main-navigation" aria-expanded="false">Menu <span aria-hidden="true">+</span></button>
+    <nav class="main-navigation" id="main-navigation" data-navigation aria-label="Main navigation">
+      <a href="docs/architecture.html">The blueprint</a>
+      <a href="ROADMAP.html">Roadmap</a>
+      <a href="CONTRIBUTING.html">Contribute</a>
+      <a class="nav-search" href="search.html"><svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="m13 13 4 4"/></svg><span>Search</span></a>
+      <a class="nav-github" href="https://github.com/Ramses13th/B-CAD">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section-wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Blueprint stage <span class="eyebrow-separator">/</span> Built in the open</p>
+        <h1 id="hero-title">Precision,<br>with room<br>to <em>build.</em></h1>
+        <p class="hero-description">An open blueprint for parametric CAD inside Blender. Exact geometry, editable history, and a familiar creative workspace. <strong>Help us make it real.</strong></p>
+        <div class="button-row"><a class="button button-primary" href="CONTRIBUTING.html">Help build B-CAD <span aria-hidden="true">↗</span></a><a class="button button-text" href="docs/architecture.html">Explore the blueprint <span aria-hidden="true">→</span></a></div>
+        <p class="hero-note">Planning, architecture, and community first. No installable add-on yet.</p>
+      </div>
+      <figure class="hero-figure">
+        <div class="figure-heading"><span>B-CAD / DESIGN STUDY 001</span><span aria-hidden="true">X · Y · Z</span></div>
+        <img src="assets/precision-study.svg" width="800" height="760" alt="Architecture concept: an exploded precision bracket shown as an exact solid with construction lines, dimensions, and an editable feature sequence.">
+        <figcaption><span class="figure-cross" aria-hidden="true">+</span> Architecture concept <span>Not a software screenshot</span></figcaption>
+      </figure>
+    </section>
+
+    <div class="principles-strip section-wrap" aria-label="Project principles"><span>Exact geometry, by design</span><span>Blender as the workspace</span><span>History you can edit</span><span>Open to contributors</span></div>
+
+    <section class="architecture-section section-wrap" aria-labelledby="architecture-title">
+      <div class="section-intro"><p class="eyebrow">01 / The idea</p><h2 id="architecture-title">Keep the shape exact.<br>Keep the workflow<br><span class="muted">in Blender.</span></h2><p>B-CAD proposes a CAD system with a clear boundary: Blender handles interaction and display; an external Open CASCADE core owns the exact model. The mesh is a view of the design. The solid remains the source of truth.</p><a class="text-link" href="docs/architecture.html">Read the architecture <span aria-hidden="true">↗</span></a></div>
+      <div class="architecture-flow" aria-label="Proposed architecture">
+        <div class="architecture-layer"><span class="layer-number">01</span><div><span class="layer-kind">The workspace</span><h3>Blender interface</h3><p>Sketch interaction, feature controls, selection, and viewport feedback.</p></div><span class="layer-symbol" aria-hidden="true">⌘</span></div>
+        <div class="flow-connection"><span>Commands down</span><span aria-hidden="true">↓ &nbsp; ↑</span><span>Results up</span></div>
+        <div class="architecture-layer"><span class="layer-number">02</span><div><span class="layer-kind">The design intent</span><h3>Parametric document</h3><p>Parameters, feature history, references, and deterministic recomputation.</p></div><span class="layer-symbol" aria-hidden="true">ƒ</span></div>
+        <div class="flow-connection"><span>Isolated protocol</span><span aria-hidden="true">↓ &nbsp; ↑</span><span>Explicit contracts</span></div>
+        <div class="architecture-layer architecture-core"><span class="layer-number">03</span><div><span class="layer-kind">The geometric authority</span><h3>External OCCT core</h3><p>Exact B-Rep operations, model validation, and display tessellation.</p></div><span class="layer-symbol" aria-hidden="true">◇</span></div>
+        <p class="flow-note"><span aria-hidden="true">↳</span> Proposed architecture. Implementation decisions remain open for review.</p>
+      </div>
+    </section>
+
+    <section class="roadmap-section" aria-labelledby="roadmap-title">
+      <div class="section-wrap">
+        <div class="roadmap-heading"><div><p class="eyebrow">02 / A deliberate path</p><h2 id="roadmap-title">Small steps.<br><span>Solid foundations.</span></h2></div><div><p>A large vision needs testable milestones. Each phase should prove a useful slice before we widen the surface.</p><a class="text-link" href="ROADMAP.html">See the full roadmap <span aria-hidden="true">↗</span></a></div></div>
+        <ol class="roadmap-list">
+          <li><div class="roadmap-index">00</div><div><div class="roadmap-label"><h3>Define the contract</h3><span class="phase-state phase-current">Current focus</span></div><p>Agree on architecture, document semantics, licensing, and what the first working slice must prove.</p><span class="roadmap-tags">Architecture · RFCs · Contributor foundation</span></div></li>
+          <li><div class="roadmap-index">01</div><div><div class="roadmap-label"><h3>Prove the geometry loop</h3><span class="phase-state">Planned</span></div><p>Connect Blender to an isolated core. Create an exact solid, display it, and recompute a parameter change.</p><span class="roadmap-tags">Core protocol · B-Rep · Viewport bridge</span></div></li>
+          <li><div class="roadmap-index">02</div><div><div class="roadmap-label"><h3>Make design editable</h3><span class="phase-state">Planned</span></div><p>Build toward constrained sketches, feature history, persistent references, and understandable failures.</p><span class="roadmap-tags">Sketches · Features · Recompute</span></div></li>
+          <li><div class="roadmap-index">03+</div><div><div class="roadmap-label"><h3>Earn a dependable release</h3><span class="phase-state">Planned</span></div><p>Expand modeling and exchange capabilities only as validation, packaging, documentation, and real workflows support them.</p><span class="roadmap-tags">Modeling · Interoperability · Release readiness</span></div></li>
+        </ol>
+        <p class="roadmap-footnote">Milestones describe goals, not shipped features or promised release dates.</p>
+      </div>
+    </section>
+
+    <section class="contribute-section section-wrap" aria-labelledby="contribute-title">
+      <div class="contribute-heading"><p class="eyebrow">03 / Open by intention</p><h2 id="contribute-title">Your kind of expertise<br>belongs here.</h2><p>Geometry specialists, Blender developers, designers, technical writers, testers, and people who simply know where CAD gets painful. There is useful work beyond writing code.</p></div>
+      <div class="contribution-lanes">
+        <a class="contribution-lane" href="https://github.com/Ramses13th/B-CAD/issues"><span class="lane-number">01</span><div><h3>Challenge the architecture</h3><p>Review the exact-model boundary, geometry decisions, and failure cases before they become expensive.</p></div><span aria-hidden="true">↗</span></a>
+        <a class="contribution-lane" href="docs/development.html"><span class="lane-number">02</span><div><h3>Build the first working slice</h3><p>Help turn written contracts into a small, demonstrable Blender-to-core loop.</p></div><span aria-hidden="true">↗</span></a>
+        <a class="contribution-lane" href="CONTRIBUTING.html"><span class="lane-number">03</span><div><h3>Design, document, and test</h3><p>Describe real workflows, improve the contributor experience, and make acceptance criteria concrete.</p></div><span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="ai-invitation"><span class="ai-mark" aria-hidden="true">H + AI</span><div><h3>Human ideas. AI assistance. Shared standards.</h3><p>AI users and AI agents are welcome. For AI-authored code and architecture, the owner's requested quality bar is GPT-6.1 Sol, Astra, Claude Opus 5.5 level, or an equivalent model. Contributions need clear evidence, accountability, and human review.</p><a class="text-link" href="docs/ai-contributions.html">Read the AI contribution policy <span aria-hidden="true">→</span></a></div></div>
+    </section>
+
+    <section class="start-section section-wrap" aria-labelledby="start-title">
+      <div><p class="eyebrow">04 / Start in the right place</p><h2 id="start-title">A blueprint today.<br>A system we build together.</h2><p>B-CAD is at the planning stage. There is no downloadable add-on, supported Blender version, or production-ready workflow yet. The installation guide tracks that status and will grow with the implementation.</p></div>
+      <div class="start-links"><a href="docs/installation.html"><span>Looking for the add-on?</span><strong>Installation &amp; current status</strong><span aria-hidden="true">↗</span></a><a href="docs/development.html"><span>Ready to work on it?</span><strong>Developer starting point</strong><span aria-hidden="true">↗</span></a><a href="docs/index.html"><span>Want the full picture?</span><strong>Browse the documentation</strong><span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="final-cta" aria-labelledby="cta-title"><div class="section-wrap"><div><p class="eyebrow">The next feature starts with a contribution.</p><h2 id="cta-title">Make something<br>worth building with.</h2></div><a class="button button-dark" href="CONTRIBUTING.html">Find your first contribution <span aria-hidden="true">↗</span></a></div></section>
+  </main>
+
+  <footer class="site-footer section-wrap"><div><a class="brand" href="./">B-CAD<span class="brand-dot">.</span></a><p>An open blueprint for parametric CAD in Blender.</p></div><nav aria-label="Footer navigation"><a href="https://github.com/Ramses13th/B-CAD">Repository ↗</a><a href="CONTRIBUTING.html">Contributing</a><a href="ROADMAP.html">Roadmap</a><a href="search.html">Search docs</a></nav><p class="footer-note">Independent community project. Not affiliated with Blender or Autodesk. Fusion is referenced only as a workflow inspiration.</p></footer>
+</body>
+</html>

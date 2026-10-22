@@ -1,0 +1,2 @@
+# Documentation build only. No CAD runtime dependencies are installed here.
+Markdown==3.11.2

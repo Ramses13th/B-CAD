@@ -1,0 +1,44 @@
+name: Feature or workflow request
+description: Propose a useful CAD workflow or contributor-hub improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        B-CAD is in the blueprint stage. Read the [roadmap](https://github.com/Ramses13th/B-CAD/blob/main/ROADMAP.md) and search existing issues first. A request is a proposal, not a delivery commitment. Use a Design RFC for architecture, new dependencies, or document-format decisions.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe a real modeling or contribution workflow and who needs it. A simple part or sketch example helps.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: What should the person be able to accomplish? Keep the problem distinct from one possible implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: How would we know it works?
+      description: Suggest observable acceptance criteria, example edits, units, tolerances, or accessibility expectations as appropriate.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and roadmap fit
+      description: Existing tools, workarounds, related issues, and the roadmap milestone this might support.
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: How could you help?
+      options:
+        - Share examples or test the workflow
+        - Research or write documentation
+        - Design or implement a focused change
+        - Discuss the need for now

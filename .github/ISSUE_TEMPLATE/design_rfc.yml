@@ -1,0 +1,50 @@
+name: Design RFC
+description: Review an architectural decision before substantial implementation.
+title: "[RFC]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose a bounded decision and a way to test it. The [architecture](https://github.com/Ramses13th/B-CAD/blob/main/docs/architecture.md) is a blueprint, not working code. New dependencies, solvers, document formats, process boundaries, licensing arrangements, and major workflows should be discussed here before substantial implementation.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem and scope
+      description: What decision is needed? Which users, milestones, or invariants does it affect? What is outside this proposal?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed design
+      description: Describe boundaries, data flow, interfaces, units and tolerances, and how it relates to the blueprint.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs
+      description: Include at least one alternative, including keeping the current plan where relevant. Address licensing, deployment, compatibility, and maintenance costs.
+    validations:
+      required: true
+  - type: textarea
+    id: failures
+    attributes:
+      label: Failure and recovery
+      description: How would invalid input, ambiguous references, solver failure, cancellation, crashes, undo, or schema changes affect this design? Include security and privacy boundaries where relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Experiment and acceptance criteria
+      description: Define a small, reproducible experiment, representative inputs, expected results, and evidence that would reject the proposal.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources, licenses, and AI disclosure
+      description: Link primary references and dependency licenses. Disclose material AI assistance with provider and exact model/version; see the AI contribution policy. State uncertainty honestly.
+    validations:
+      required: true

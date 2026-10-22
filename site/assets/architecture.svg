@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 560" width="1080" height="560" role="img" aria-labelledby="architecture-title architecture-desc">
+  <title id="architecture-title">B-CAD proposed architecture</title>
+  <desc id="architecture-desc">Three connected layers: Blender hosts tools, operators, and replaceable display caches. A document controller owns the canonical versioned parameters, units, source assets, and feature dependency graph. An isolated CAD core process evaluates exact geometry using OCCT, a sketch solver adapter, and semantic reference resolution. Commands flow toward the core; revision-tagged results return toward Blender. The canonical document is saved and restored independently of display caches. This diagram is a proposal and does not imply implemented software.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#101b2d"/>
+      <stop offset="1" stop-color="#182b3d"/>
+    </linearGradient>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8Z" fill="#82baff"/>
+    </marker>
+    <marker id="arrow-teal" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0 0 L8 4 L0 8Z" fill="#7de0cc"/>
+    </marker>
+    <style>
+      text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .title { fill: #f4f8ff; font-size: 30px; font-weight: 700; }
+      .subtitle { fill: #b8c9dc; font-size: 16px; }
+      .card-title { fill: #f4f8ff; font-size: 21px; font-weight: 650; }
+      .body { fill: #cad8e8; font-size: 16px; }
+      .small { fill: #b8c9dc; font-size: 13px; }
+      .badge { fill: #91e5d3; font-size: 12px; font-weight: 700; letter-spacing: 1.4px; }
+      .blue { fill: #9bc8ff; font-size: 13px; font-weight: 600; }
+      .teal { fill: #91e5d3; font-size: 13px; font-weight: 600; }
+    </style>
+  </defs>
+  <rect width="1080" height="560" rx="24" fill="url(#bg)"/>
+  <text x="32" y="52" class="title">B-CAD architecture</text>
+  <text x="32" y="82" class="subtitle">Design intent, exact geometry, and display have distinct responsibilities.</text>
+  <rect x="905" y="27" width="143" height="31" rx="15.5" fill="#193d43" stroke="#367466"/>
+  <text x="976.5" y="47" class="badge" text-anchor="middle">PROPOSAL</text>
+
+  <rect x="30" y="135" width="280" height="247" rx="15" fill="#1b3049" stroke="#365777"/>
+  <rect x="30" y="135" width="280" height="5" rx="2.5" fill="#82baff"/>
+  <text x="50" y="172" class="card-title">Blender host</text>
+  <text x="50" y="204" class="body">Tools and operators</text>
+  <text x="50" y="231" class="body">Viewport and selection</text>
+  <text x="50" y="258" class="body">Scene and rendering</text>
+  <line x1="50" x2="290" y1="282" y2="282" stroke="#365777"/>
+  <text x="50" y="309" class="blue">REPLACEABLE DISPLAY</text>
+  <text x="50" y="337" class="body">Meshes and GPU caches</text>
+  <text x="50" y="362" class="small">Never the source of CAD dimensions</text>
+
+  <rect x="400" y="135" width="280" height="247" rx="15" fill="#1b3049" stroke="#365777"/>
+  <rect x="400" y="135" width="280" height="5" rx="2.5" fill="#a7b5ff"/>
+  <text x="420" y="172" class="card-title">Document controller</text>
+  <text x="420" y="204" class="body">Units and typed parameters</text>
+  <text x="420" y="231" class="body">Stable IDs and feature DAG</text>
+  <text x="420" y="258" class="body">Transactions and revisions</text>
+  <line x1="420" x2="660" y1="282" y2="282" stroke="#365777"/>
+  <text x="420" y="309" class="blue">CANONICAL INTENT</text>
+  <text x="420" y="337" class="body">Definitions and source assets</text>
+  <text x="420" y="362" class="small">Recoverable without display caches</text>
+
+  <rect x="770" y="135" width="280" height="247" rx="15" fill="#19383c" stroke="#3b6965"/>
+  <rect x="770" y="135" width="280" height="5" rx="2.5" fill="#7de0cc"/>
+  <text x="790" y="172" class="card-title">CAD core process</text>
+  <text x="790" y="204" class="body">Sketch solver adapter</text>
+  <text x="790" y="231" class="body">Feature evaluation and refs</text>
+  <text x="790" y="258" class="body">Validation and exchange</text>
+  <line x1="790" x2="1030" y1="282" y2="282" stroke="#3b6965"/>
+  <text x="790" y="309" class="teal">EXACT EVALUATED STATE</text>
+  <text x="790" y="337" class="body">OCCT B-Rep and history</text>
+  <text x="790" y="362" class="small">Exact queries and tessellation</text>
+
+  <path d="M317 214H391" fill="none" stroke="#82baff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="355" y="198" class="blue" text-anchor="middle">commands</text>
+  <path d="M687 214H761" fill="none" stroke="#82baff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="725" y="198" class="blue" text-anchor="middle">local IPC</text>
+  <path d="M761 318H687" fill="none" stroke="#7de0cc" stroke-width="2" marker-end="url(#arrow-teal)"/>
+  <text x="725" y="343" class="teal" text-anchor="middle">results</text>
+  <path d="M391 318H317" fill="none" stroke="#7de0cc" stroke-width="2" marker-end="url(#arrow-teal)"/>
+  <text x="355" y="343" class="teal" text-anchor="middle">display</text>
+
+  <path d="M540 389V424" fill="none" stroke="#82baff" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <rect x="400" y="434" width="280" height="64" rx="12" fill="#15273d" stroke="#51648b"/>
+  <text x="540" y="460" class="body" text-anchor="middle">Persistence and migrations</text>
+  <text x="540" y="483" class="small" text-anchor="middle">Save / restore canonical revisions</text>
+  <text x="32" y="534" class="subtitle">Revision checks keep the document, exact results, and display in step.</text>
+</svg>
