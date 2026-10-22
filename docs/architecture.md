@@ -1,6 +1,6 @@
 # Architecture proposal
 
-> **Status: proposed design, not an implementation description.** B-CAD currently contains a blueprint and contributor hub. There is no working CAD service, add-on, native document format, or supported version matrix yet. Code-like examples below explain intended boundaries; they are not stable APIs.
+> **Status: proposed target architecture.** The repository now includes a bounded experimental document/controller, isolated CAD worker, local workbench and Blender adapter. [ADR 0002](decisions/0002-first-prototype.md) describes that implementation and its differences from this larger proposal. Code-like examples below explain intended boundaries; they are not stable APIs or implemented-feature claims. The general feature graph, sketch solver and persistent references remain planned.
 
 B-CAD aims to put a parametric mechanical CAD workflow inside Blender while keeping exact geometry and design intent in a dedicated CAD system. The document describes *what should be true* before contributors multiply the feature count. [ADR 0001](decisions/0001-cad-architecture.md) records the proposal and the evidence needed to adopt it. The [roadmap](../ROADMAP.md) turns it into testable work.
 

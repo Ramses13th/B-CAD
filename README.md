@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://www.repostatus.org/#concept"><img src="https://www.repostatus.org/badges/latest/concept.svg" alt="Project status: concept"></a>
+  <a href="docs/installation.md"><img src="https://img.shields.io/badge/status-experimental_prototype-f4aa55" alt="Project status: experimental prototype"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0--or--later-89c4a0" alt="License: GPL-3.0-or-later"></a>
   <a href="https://github.com/Ramses13th/B-CAD/actions/workflows/docs.yml"><img src="https://github.com/Ramses13th/B-CAD/actions/workflows/docs.yml/badge.svg" alt="Documentation checks"></a>
   <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/contributions-humans_%2B_AI-f4aa55" alt="Contributions: humans and AI"></a>
@@ -11,7 +11,7 @@
 
 <h1 align="center">Precision, with room to build.</h1>
 
-<p align="center"><strong>An open blueprint for a serious parametric CAD system inside Blender.</strong><br>
+<p align="center"><strong>Building an open parametric CAD system inside Blender.</strong><br>
 Exact geometry. Editable design intent. A community building in the open.</p>
 
 <p align="center">
@@ -22,7 +22,25 @@ Exact geometry. Editable design intent. A community building in the open.</p>
   <a href="https://ramses13th.github.io/B-CAD/search.html">Search docs</a>
 </p>
 
-> **Current status: blueprint / pre-implementation.** This repository contains the project plan, architecture proposals, contributor guides, and documentation website. **There is no Blender add-on, CAD core, downloadable installer, or supported Blender version yet.** Features below describe the system we want to build. See [installation and availability](docs/installation.md).
+> **Current status: experimental prototype.** The first slice implements exact boxes, drilled plates and cylinders, length expressions, document save/load, undo/redo in a local browser workbench, STEP import/export, STL export and a Blender display adapter. It is a development build, with no production release or full Fusion compatibility. Most of the roadmap is still planned. See [installation](docs/installation.md) and the [experimental decision record](docs/decisions/0002-first-prototype.md).
+
+## Try the first implementation
+
+![Experimental B-CAD local workbench displaying an exact drilled plate, named dimensions and OCCT measurements. Actual running prototype.](site/assets/workbench-preview.jpg)
+
+Create a separate Python 3.13 environment in a checkout, then run the local workbench:
+
+```shell
+python -m venv .venv
+# Windows:
+.venv\Scripts\python -m pip install -r requirements-core.txt
+.venv\Scripts\python -m bcad.server
+# macOS/Linux commands use .venv/bin/python instead; not yet runtime-tested here.
+```
+
+The workbench opens at `http://127.0.0.1:8765`. All geometry is computed locally. Try a drilled plate with `width = 80 mm`, `depth = width / 2`, `height = 8 mm` and `hole_diameter = 12 mm`. Preview a change, apply it, undo it, save a `.bcad` document, or export a STEP body. The interface includes orbit/pan/zoom, standard views, projection controls and a command palette.
+
+For Blender, build the add-on with `python tools/package_addon.py`, install the resulting ZIP, and select the external environment's Python in its preferences. See the [complete installation instructions](docs/installation.md). Native CAD packages stay outside Blender's Python.
 
 ## What is B-CAD?
 
@@ -49,15 +67,17 @@ This is an independent community project. It is not affiliated with or endorsed 
 | Area | Proposed direction | Status |
 | --- | --- | --- |
 | Sketching | Lines, arcs, circles, dimensions, geometric constraints, degrees of freedom | Planned |
-| Exact solids | An external native core using Open CASCADE Technology (OCCT) | Proposed architecture |
+| Exact solids | External CadQuery / OCCT worker; box, drilled plate and cylinder | Experimental slice implemented |
 | Parametric history | Versioned document, dependency graph, deterministic recompute, explicit failures | Planned |
 | Modeling | Extrude, revolve, Boolean operations, fillet, chamfer, holes, patterns | Planned MVP scope |
 | Stable references | Semantic face/edge references with operation history and ambiguity diagnostics | Research priority |
-| CAD exchange | STEP import/export; STL and 3MF as derived mesh exports | Planned |
-| Blender integration | Viewport, selection, panels, undo synchronization, local display caches | Planned |
-| Beyond the MVP | Assemblies, drawings, advanced features, migration, manufacturing bridges | Later roadmap |
+| CAD exchange | STEP base-body import/export and STL mesh export; broader formats/history later | Experimental slice implemented |
+| Blender integration | Parameter panel, explicit recompute, `.bcad` save/load, rebuildable display meshes | Experimental adapter |
+| Modern interaction | Local browser workbench; broader native tools and shared command schema | First workbench implemented |
+| Beyond the MVP | Gears, assemblies, drawings, surfaces, sheet metal, migration, manufacturing bridges | Later roadmap |
+| 3D printing | Mesh handoff, FDM/resin preparation, slicing integration and previews | Explicitly deferred, non-priority |
 
-No part of this table is a compatibility or feature-availability claim. The [roadmap](ROADMAP.md) defines what evidence is needed to change a feature's status.
+The experimental statuses describe only this small implementation. They do not imply a complete feature history, sketch solver, persistent topology naming or a production CAD system. The [vision and format matrix](docs/vision.md) and [roadmap](ROADMAP.md) distinguish shipped experiments from future capabilities.
 
 ## A CAD engine with Blender as its home
 
@@ -71,7 +91,7 @@ External CAD core → OCCT exact B-Rep
 Blender display meshes (rebuildable caches)
 ```
 
-The hard problems deserve early attention: persistent topology references, units and tolerances, transactional undo, solver behavior, reliable native packaging, and failure recovery. Solver choice, protocol encoding, document storage, and the supported platform matrix remain open design decisions. Read the [architecture proposal](docs/architecture.md) before implementing a subsystem.
+The hard problems deserve early attention: persistent topology references, units and tolerances, transactional undo, solver behavior, reliable native packaging, and failure recovery. The spike uses protocol 1 JSON lines and a schema-versioned JSON document; these are experimental contracts. Solver choice and production storage/protocol/platform decisions remain open. Read the [architecture proposal](docs/architecture.md) and [ADR 0002](docs/decisions/0002-first-prototype.md) before implementing a subsystem.
 
 ## Humans and capable AI agents: come build with us
 
@@ -100,7 +120,7 @@ The [full roadmap](ROADMAP.md) contains task IDs, dependencies, acceptance crite
 
 ## Documentation that stays useful
 
-The [public hub](https://ramses13th.github.io/B-CAD/) publishes the same Markdown maintained here, with browser-local search, accessible navigation, a sitemap, and links back to source. Pull requests run local-link and generated-site checks. This CI validates the documentation; it does not validate a CAD implementation.
+The [public hub](https://ramses13th.github.io/B-CAD/) publishes the Markdown from the main branch, with browser-local search, accessible navigation, a sitemap, and links back to source. Documentation checks validate links and generated pages. A separate prototype workflow exercises documents, the local HTTP boundary and native CAD geometry. See [development and verification](docs/development.md).
 
 ## License and acknowledgments
 

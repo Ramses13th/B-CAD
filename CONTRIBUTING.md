@@ -1,6 +1,6 @@
 # Help build B-CAD
 
-B-CAD is a community blueprint for an open-source parametric CAD system inside Blender. We are at the **planning and contributor-hub stage**: there is no working add-on, supported installation, or geometry engine in this repository yet. Help turn a careful architecture into software people can trust.
+B-CAD is an open-source parametric CAD project inside Blender. We have an **experimental first slice**: exact primitives, a local browser workbench and a Blender display adapter. Most modeling capabilities remain on the roadmap; there is no production release. Help turn a small, tested foundation into software people can trust. Read [installation](docs/installation.md), [development](docs/development.md) and [ADR 0002](docs/decisions/0002-first-prototype.md) before extending the experiment.
 
 Humans, people working with AI, and AI agents are welcome. You do not need to be a CAD-kernel expert to make a useful contribution. Good documentation, concrete modeling workflows, accessibility feedback, and small reproducible examples matter.
 

@@ -1,0 +1,17 @@
+{
+  "format": "bcad",
+  "schema_version": 1,
+  "document_id": "5a8f930a-7bdf-4de0-bc20-0157dac6c201",
+  "name": "Parametric drilled plate",
+  "revision": 0,
+  "units": {"length": "mm", "angle": "deg"},
+  "part": {
+    "kind": "plate",
+    "parameters": {
+      "width": "80 mm",
+      "depth": "width / 2",
+      "height": "8 mm",
+      "hole_diameter": "12 mm"
+    }
+  }
+}

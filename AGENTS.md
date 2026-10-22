@@ -2,7 +2,7 @@
 
 ## Repository status
 
-B-CAD is a **blueprint and contributor hub**, not an implemented Blender add-on. The repository currently contains documentation, website assets, and documentation tooling. It has no installable add-on, supported runtime, CAD-core service, geometry test suite, or production release. Do not imply otherwise in code, prose, issue comments, release notes, or screenshots.
+B-CAD has an **experimental first CAD slice and contributor hub**. The slice includes a versioned JSON document, typed length expressions, exact box/plate/cylinder primitives, an isolated CadQuery/OCCT worker, local browser workbench and Blender display adapter. STEP base bodies and mesh exports do not preserve arbitrary feature history. There is no production release, sketch solver or full Fusion parity. Distinguish this bounded implementation from the wider proposed architecture in code, prose, release notes and screenshots. Read ADR 0002 and installation/development docs for current limits and evidence.
 
 Read [CONTRIBUTING.md](CONTRIBUTING.md), [docs/ai-contributions.md](docs/ai-contributions.md), [ROADMAP.md](ROADMAP.md), and [docs/architecture.md](docs/architecture.md) before substantial work. The architecture and roadmap describe proposed work. Verify assumptions against the repository and current primary documentation before relying on them.
 
@@ -39,7 +39,7 @@ To preview the generated site:
 python -m http.server 8000 --directory work/site
 ```
 
-No add-on build or geometry tests are available yet. Do not invent successful Blender, solver, kernel, or platform results. Future implementation work must define its own runnable checks and fixtures before claiming support.
+Run `python -m unittest discover -s tests -v` in the core environment for documents, HTTP and native geometry, and `python tools/package_addon.py` for the adapter ZIP. `tests/blender_smoke.py` exercises a real installed Blender with an external core environment; follow the development guide. Do not invent successful Blender, solver, kernel or platform results. Only Windows/Python 3.13/Blender 5.1 has local runtime evidence for this first slice; a CI configuration is not itself a passed check.
 
 ## Proposed CAD invariants
 

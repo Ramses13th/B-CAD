@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="B-CAD experimental local workbench. Create precise solids, edit dimensions, inspect exact geometry and exchange STEP files.">
+  <title>B-CAD · Workbench</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231c2525'/%3E%3Cpath d='M8 8h10l6 5v11H8zM8 13h16M18 8v16' stroke='%23edb668' fill='none' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="icon-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="m12 3 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></symbol>
+    <symbol id="i-cylinder" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 4 16 4 16 0V6M4 17c0 4 16 4 16 0"/></symbol>
+    <symbol id="i-plate" viewBox="0 0 24 24"><path d="m3 10 11-6 7 4-11 6zM3 10v5l7 5 11-7V8M10 14v6"/><ellipse cx="12" cy="9" rx="3" ry="1.5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6h7l2 3h9l-2 11H3zM3 11h18"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M4 3h13l3 3v15H4zM8 3v6h8V3M8 21v-8h8v8"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 15v6h16v-6"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 16V4m-5 5 5-5 5 5M4 15v6h16v-6"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="m9 5-6 6 6 6M3 11h10c6 0 8 4 8 9"/></symbol>
+    <symbol id="i-redo" viewBox="0 0 24 24"><path d="m15 5 6 6-6 6M21 11H11c-6 0-8 4-8 9"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+    <symbol id="i-fit" viewBox="0 0 24 24"><path d="M3 8V3h5m8 0h5v5m0 8v5h-5m-8 0H3v-5M8 8h8v8H8z"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></symbol>
+    <symbol id="i-ruler" viewBox="0 0 24 24"><path d="m3 15 12-12 6 6L9 21zM6 12l3 3m0-6 3 3m0-6 3 3"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12c5-9 15-9 20 0-5 9-15 9-20 0z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></symbol>
+    <symbol id="i-command" viewBox="0 0 24 24"><path d="M8 8h8v8H8zM8 8H5a3 3 0 1 1 3-3zm8 0V5a3 3 0 1 1 3 3zm0 8h3a3 3 0 1 1-3 3zm-8 0v3a3 3 0 1 1-3-3z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M5 3h9l5 5v13H5zM14 3v6h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5-9 5zM3 12l9 5 9-5M3 16l9 5 9-5"/></symbol>
+    <symbol id="i-orbit" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-35 12 12)"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 4l5 5h6l5-5M9 9v6h6V9M4 20l5-5m6 0 5 5"/></symbol>
+  </defs></svg>
+
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="B-CAD workbench"><span class="brand-mark"><svg><use href="#i-cube"/></svg></span><span>B<span class="brand-dash">—</span>CAD</span></a>
+    <div class="workspace-pill">WORKBENCH <span>0.1 · EXPERIMENTAL</span></div>
+    <div class="project-heading"><span class="document-dot" id="document-dot" title="Unsaved project"></span><span id="project-title">Untitled part</span><span class="revision" id="revision-label">r0</span></div>
+    <div class="header-actions">
+      <button class="button command-trigger" id="command-button" title="Search commands (Ctrl+K)"><svg><use href="#i-search"/></svg><span>Commands</span><kbd>Ctrl K</kbd></button>
+      <button class="icon-button" id="help-button" title="Workbench guide" aria-label="Workbench guide"><svg><use href="#i-info"/></svg></button>
+    </div>
+  </header>
+
+  <nav class="actionbar" aria-label="Project tools">
+    <div class="action-group">
+      <button class="button" id="new-button" data-idle><svg><use href="#i-plus"/></svg><span>New</span></button>
+      <button class="button" id="open-button" data-idle><svg><use href="#i-folder"/></svg><span>Open</span></button>
+      <button class="button" id="save-button" data-idle><svg><use href="#i-save"/></svg><span>Save project</span></button>
+    </div>
+    <span class="tool-divider"></span>
+    <div class="action-group">
+      <button class="icon-button" id="undo-button" data-idle title="Undo (Ctrl+Z)" aria-label="Undo"><svg><use href="#i-undo"/></svg></button>
+      <button class="icon-button" id="redo-button" data-idle title="Redo (Ctrl+Shift+Z)" aria-label="Redo"><svg><use href="#i-redo"/></svg></button>
+    </div>
+    <div class="actionbar-center"><span class="small-indicator"></span> SOLID MODELING <span class="actionbar-unit">mm / deg</span></div>
+    <div class="export-wrap">
+      <button class="button button-export" id="export-button" data-idle aria-haspopup="true" aria-expanded="false"><svg><use href="#i-download"/></svg>Export<svg class="tiny-icon"><use href="#i-chevron"/></svg></button>
+      <div class="popover export-menu" id="export-menu" hidden><p>EXPORT COMMITTED SOLID</p><button data-export="step"><span>STEP</span><small>Exact CAD geometry</small></button><button data-export="stl"><span>STL</span><small>Triangle mesh · millimeters</small></button></div>
+    </div>
+  </nav>
+
+  <main class="workspace">
+    <aside class="model-panel" aria-label="Model and creation tools">
+      <div class="panel-heading"><span>MODEL</span><svg><use href="#i-layers"/></svg></div>
+      <div class="document-tree" id="document-tree">
+        <div class="tree-document"><svg class="tree-chevron"><use href="#i-chevron"/></svg><svg><use href="#i-file"/></svg><span id="tree-project-name">Untitled part</span></div>
+        <div class="tree-body"><span class="tree-line"></span><svg id="tree-body-icon"><use href="#i-cube"/></svg><span id="tree-body-name">Solid body</span><span class="tree-count" id="tree-solid-count">1</span></div>
+        <div class="tree-feature-list" id="tree-features"></div>
+      </div>
+      <div class="panel-heading create-heading"><span>CREATE A PART</span><span class="micro-label">3 STARTERS</span></div>
+      <div class="primitive-list" id="primitive-list">
+        <button class="primitive-card" data-kind="box" data-idle><span class="primitive-icon"><svg><use href="#i-cube"/></svg></span><span><strong>Box</strong><small>Three exact dimensions</small></span><svg class="primitive-arrow"><use href="#i-plus"/></svg></button>
+        <button class="primitive-card" data-kind="plate" data-idle><span class="primitive-icon"><svg><use href="#i-plate"/></svg></span><span><strong>Drilled plate</strong><small>Plate + centered through-hole</small></span><svg class="primitive-arrow"><use href="#i-plus"/></svg></button>
+        <button class="primitive-card" data-kind="cylinder" data-idle><span class="primitive-icon"><svg><use href="#i-cylinder"/></svg></span><span><strong>Cylinder</strong><small>Diameter and height</small></span><svg class="primitive-arrow"><use href="#i-plus"/></svg></button>
+      </div>
+      <button class="import-button" id="import-button" data-idle><svg><use href="#i-upload"/></svg><span>Import STEP<small>Bring in an existing CAD solid</small></span></button>
+      <div class="panel-spacer"></div>
+      <div class="local-note"><span class="local-glyph"></span><div><strong>Your machine. Your geometry.</strong><p>Runs locally. Your files stay here.</p></div></div>
+      <button class="guide-button" id="guide-button"><svg><use href="#i-info"/></svg>First time here?<span>Read the guide ↗</span></button>
+    </aside>
+
+    <section class="viewport-section" aria-label="3D model viewport">
+      <div class="viewport-topline"><div><span class="eyebrow">DESIGN SPACE</span><h1 id="part-heading">Parametric solid<span class="part-heading-dot">.</span></h1></div><div class="geometry-badge" id="geometry-badge"><span></span><span id="geometry-badge-text">Connecting</span></div></div>
+      <canvas id="viewport" tabindex="0" aria-label="Interactive 3D solid preview. Drag to orbit, Shift-drag or right-drag to pan, scroll to zoom. F fits the model."></canvas>
+      <div class="empty-state" id="empty-state" hidden><div class="empty-state-icon"><svg><use href="#i-cube"/></svg></div><h2>Start with something solid.</h2><p>Create a part from the left, or import a STEP file.</p></div>
+      <div class="viewport-notice" id="viewport-notice" hidden><svg><use href="#i-info"/></svg><span id="viewport-notice-text"></span></div>
+      <div class="view-switcher" aria-label="Camera views"><button data-view="iso" class="active" title="Isometric view (1)" aria-pressed="true">ISO</button><button data-view="top" title="Top view (2)" aria-pressed="false">TOP</button><button data-view="front" title="Front view (3)" aria-pressed="false">FRONT</button><button data-view="right" title="Right view (4)" aria-pressed="false">RIGHT</button></div>
+      <div class="viewport-tools" aria-label="Viewport options">
+        <button class="icon-button" id="fit-button" title="Fit model (F)" aria-label="Fit model"><svg><use href="#i-fit"/></svg></button><span></span>
+        <button class="icon-button active" id="grid-button" aria-pressed="true" title="Toggle construction grid" aria-label="Construction grid"><svg><use href="#i-grid"/></svg></button>
+        <button class="icon-button active" id="dimensions-button" aria-pressed="true" title="Toggle overall dimensions" aria-label="Overall dimensions"><svg><use href="#i-ruler"/></svg></button>
+        <button class="projection-button" id="projection-button" title="Switch projection" aria-label="Switch projection; currently orthographic">ORTHO</button>
+      </div>
+      <div class="viewport-footer"><span><svg><use href="#i-orbit"/></svg>Drag to orbit <i>·</i> Shift + drag to pan <i>·</i> Scroll to zoom</span><span id="viewport-scale">1 unit = 1 mm</span></div>
+      <div class="axis-legend" aria-hidden="true"><canvas id="axis-canvas" width="150" height="150"></canvas></div>
+    </section>
+
+    <aside class="inspector-panel" aria-label="Part parameters and exact measurements">
+      <div class="panel-heading"><span>INSPECTOR</span><svg><use href="#i-settings"/></svg></div>
+      <div class="inspector-title"><span class="inspector-part-icon"><svg id="inspector-kind-icon"><use href="#i-cube"/></svg></span><div><h2 id="inspector-title">Solid parameters</h2><p id="inspector-subtitle">Editable dimensions</p></div><span class="unit-pill">mm</span></div>
+      <form id="parameter-form" autocomplete="off" novalidate>
+        <div class="parameter-fields" id="parameter-fields"></div>
+        <div class="expression-tip" id="expression-tip"><span>ƒx</span>Try <code>2 in</code> or <code>width / 2</code>. Unitless values use millimeters.</div>
+        <div class="edit-state" id="edit-state"><span class="edit-state-dot"></span><span id="edit-state-label">All changes applied</span></div>
+        <div class="parameter-actions"><button type="button" class="button preview-button" id="preview-button" data-idle><svg><use href="#i-eye"/></svg>Preview</button><button type="submit" class="button apply-button" id="apply-button" data-idle><svg><use href="#i-check"/></svg>Apply</button></div>
+        <button type="button" class="cancel-button" id="cancel-button" data-idle hidden>Discard parameter changes</button>
+      </form>
+      <div class="error-card" id="error-card" role="alert" hidden><strong id="error-title">Could not update the part</strong><p id="error-message"></p></div>
+      <section class="measurements" aria-labelledby="measurements-title"><div class="section-title"><h3 id="measurements-title">EXACT MEASUREMENTS</h3><span class="exact-tag">OCCT</span></div><div class="metric-primary"><span>Volume</span><strong id="metric-volume">—</strong><small>mm³</small></div><dl class="metric-list"><div><dt>Surface area</dt><dd><span id="metric-area">—</span><small>mm²</small></dd></div><div><dt>Bounds X</dt><dd><span id="metric-x">—</span><small>mm</small></dd></div><div><dt>Bounds Y</dt><dd><span id="metric-y">—</span><small>mm</small></dd></div><div><dt>Bounds Z</dt><dd><span id="metric-z">—</span><small>mm</small></dd></div></dl><div class="topology-stats"><div><strong id="metric-solids">—</strong><span>SOLIDS</span></div><div><strong id="metric-faces">—</strong><span>FACES</span></div><div><strong id="metric-edges">—</strong><span>EDGES</span></div></div><div class="validity-row" id="validity-row"><svg><use href="#i-check"/></svg><span id="validity-label">Awaiting geometry</span></div></section>
+      <div class="inspector-footnote">Measurements use the exact solid.<br>The viewport is a tessellated preview.</div>
+    </aside>
+  </main>
+
+  <section class="featurebar" aria-label="Current part features"><div class="featurebar-label"><svg><use href="#i-layers"/></svg><span>FEATURES</span></div><div class="feature-strip" id="feature-strip"><span class="feature-empty">Create a part to see its features</span></div><span class="featurebar-note">One parametric part</span></section>
+  <footer class="statusbar"><div class="engine-status"><span id="engine-indicator"></span><span id="engine-status">Connecting to local geometry engine</span></div><div class="status-center" id="status-message" role="status" aria-live="polite">Preparing your workspace</div><div class="status-right"><span>LOCAL SESSION</span><span class="status-divider">/</span><span id="mesh-status">No mesh</span></div></footer>
+
+  <input type="file" id="project-input" accept=".bcad,.json" hidden>
+  <input type="file" id="step-input" accept=".step,.stp" hidden>
+  <dialog id="command-dialog" class="command-dialog" aria-labelledby="command-title"><div class="command-search"><svg><use href="#i-search"/></svg><input id="command-search" placeholder="What would you like to do?" aria-label="Search commands"><button class="escape-button" id="command-close" aria-label="Close command palette">Esc</button></div><h2 class="sr-only" id="command-title">Command palette</h2><div id="command-results" class="command-results"></div><div class="command-footer"><span>↑ ↓ to navigate</span><span>↵ to run</span></div></dialog>
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title"><button class="icon-button dialog-close" id="help-close" aria-label="Close guide"><svg><use href="#i-close"/></svg></button><div class="help-mark"><svg><use href="#i-cube"/></svg></div><span class="eyebrow">A SMALL FIRST STEP, BUILT PRECISELY</span><h2 id="help-title">Meet your workbench.</h2><p class="help-intro">An experimental local CAD workspace for dimensioned solids. B-CAD is beginning its journey toward a complete parametric CAD environment.</p><ol class="help-steps"><li><span>01</span><div><strong>Start with a part</strong><p>Create a box, a drilled plate or a cylinder. You can also import an exact solid from a STEP file.</p></div></li><li><span>02</span><div><strong>Give it dimensions</strong><p>Use millimeters, explicit units like <code>2 in</code>, or an expression like <code>width / 2</code>. Preview, then apply the change.</p></div></li><li><span>03</span><div><strong>Keep it, or take it with you</strong><p>Save an editable <code>.bcad</code> project. Export exact STEP geometry or a millimeter-based STL mesh.</p></div></li></ol><div class="shortcut-grid"><span>Orbit</span><kbd>Drag</kbd><span>Pan</span><kbd>Shift + drag</kbd><span>Fit</span><kbd>F</kbd><span>Commands</span><kbd>Ctrl K</kbd><span>Save</span><kbd>Ctrl S</kbd><span>Undo / redo</span><kbd>Ctrl Z / Ctrl Shift Z</kbd></div><p class="scope-note">Available now: one parametric primitive or one imported STEP body, local save/load, undo/redo and exchange. Sketch constraints, gears, assemblies and Blender integration are future work.</p><button class="button apply-button help-start" id="help-start">Let's make something<svg><use href="#i-plus"/></svg></button></dialog>
+</body>
+</html>
