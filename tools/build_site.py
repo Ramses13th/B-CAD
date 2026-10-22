@@ -60,7 +60,7 @@ def rewrite_links(body, source):
             return match.group(0)
         target = (source.parent / parts.path).resolve()
         repo_path = target.relative_to(ROOT)
-        if repo_path.parts[0] == ".github" or target.suffix == ".py" or target.name in ("requirements.txt", "LICENSE", "NOTICE"):
+        if repo_path.parts[0] == ".github" or target.suffix == ".py" or target.name in ("requirements.txt", "requirements-core.txt", "LICENSE", "NOTICE"):
             url = f"{REPO_URL}/blob/main/{repo_path.as_posix()}"
             if parts.fragment:
                 url += "#" + parts.fragment

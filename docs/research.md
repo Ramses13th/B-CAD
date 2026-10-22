@@ -1,6 +1,6 @@
 # Research register and source notes
 
-> B-CAD is a blueprint and contributor hub. This register identifies questions to answer before implementation choices become compatibility promises. A link to a capable upstream project is evidence to investigate, not a claim that B-CAD already integrates it.
+> B-CAD has an experimental first slice, documented in [ADR 0002](decisions/0002-first-prototype.md) and the [dependency record](dependencies.md). This register covers the wider proposed architecture and questions to answer before implementation choices become compatibility promises. A link to a capable upstream project is evidence to investigate, not a claim that B-CAD already integrates it.
 
 The user-supplied **Blueprint for a Fusion-like parametric CAD system inside Blender** informed the architecture and scope. It is reference material. No implementation, source-code reuse, dependency approval, version support, calendar schedule, or effort estimate is implied by using that document. The original PDF is not redistributed here because redistribution rights have not been established.
 

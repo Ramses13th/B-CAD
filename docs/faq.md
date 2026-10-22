@@ -2,7 +2,7 @@
 
 ## Can I install B-CAD now?
 
-No. The repository currently contains a blueprint, roadmap, contributor materials, and the documentation website. There is no add-on ZIP, CAD core, release, or working modeling UI. See [installation and availability](installation.md).
+You can run the experimental local workbench and build a Blender add-on ZIP from source. The first slice handles exact boxes, drilled plates and cylinders; no production release is available. See [installation](installation.md).
 
 ## Is this a Fusion replacement?
 
@@ -18,11 +18,11 @@ The project aims to preserve design intent, exact geometry, and stable feature r
 
 ## Which Blender versions and operating systems work?
 
-None have been validated for a B-CAD implementation yet. The blueprint suggests an LTS baseline, but the exact version and supported Windows, Linux, and macOS matrix must be selected and tested before a release. The docs website itself runs in a modern browser.
+The first slice has local runtime evidence on Windows, Python 3.13 and Blender 5.1.0. This is a tested development configuration, not a cross-platform support promise. See [development](development.md) for exact checks and remaining evidence gaps.
 
 ## Do I need to build native libraries to contribute?
 
-No. Documentation, design cases, UI proposals, test plans, and infrastructure work are useful now. Native build instructions will arrive with the CAD core. The current [documentation build](development.md) needs Python and a Markdown dependency.
+No. Documentation, design cases and UI work remain useful. The prototype uses pinned prebuilt CAD wheels in a separate Python environment; it does not require compiling OCCT on the tested Windows configuration. See [development](development.md) and [dependencies](dependencies.md).
 
 ## Can an AI or AI-assisted user contribute?
 
@@ -34,7 +34,7 @@ This initial hub contains no third-party CAD implementation. Those projects are 
 
 ## Will STEP, STL, 3MF, assemblies, or drawings be supported?
 
-These appear in the [roadmap](../ROADMAP.md), with different scope and priority. No such feature is implemented here yet. Exact STEP geometry and mesh export are distinct; neither automatically preserves feature history.
+The prototype imports and exports STEP base bodies and exports STL meshes. It does not import arbitrary CAD project histories. 3MF, assemblies and drawings remain planned at different priorities. Exact STEP geometry and mesh export are distinct; neither automatically preserves feature history. See the [format matrix](vision.md) and [roadmap](../ROADMAP.md).
 
 ## When will a release be ready?
 
