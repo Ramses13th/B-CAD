@@ -26,3 +26,5 @@ B-CAD is an open project to build a parametric mechanical CAD environment inside
 The architecture and roadmap are living documents. Source materials can suggest a direction; they do not silently approve a dependency, certify Blender compatibility, or turn a feature into a working one.
 
 Browse these pages on GitHub, or use the website's [documentation search](https://ramses13th.github.io/B-CAD/search.html) to find a topic or roadmap task.
+
+- [A first measured bracket](first-measured-bracket.md) (proposed workflow)
